@@ -1,4 +1,4 @@
-# There are two tables of data in this dataset to download in the folder `Datasets`. The other table is created in the query file (first statement in the file)
+## There are two tables of data in this dataset to download in the folder `Datasets`. The other table is created in the query file `CongressQueryProject.sql` (first statement in the file)
 
 # Congressional Resignations
 
