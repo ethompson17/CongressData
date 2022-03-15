@@ -1,15 +1,20 @@
---insert into Reasons (Code,Category)
---values
---('X', 'Unwanted sexual contact'),
---('A', 'Consensual sex scandals'),
---('B', 'Other scandals'),
---('C', 'Other office'),
---('D', 'Private sector'),
---('E', 'Health/family'),
---('F', 'Other'),
---('G', 'Left early'),
---('H', 'Military services'),
---('I', 'Election overturned')
+create table res
+(code varchar(5),
+category varchar(50));
+
+
+insert into Reasons (Code,Category)
+values
+('X', 'Unwanted sexual contact'),
+('A', 'Consensual sex scandals'),
+('B', 'Other scandals'),
+('C', 'Other office'),
+('D', 'Private sector'),
+('E', 'Health/family'),
+('F', 'Other'),
+('G', 'Left early'),
+('H', 'Military services'),
+('I', 'Election overturned')
 
 --Cleaning up Resignation Date column
 alter table congressional_resignations$
