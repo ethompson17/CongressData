@@ -71,6 +71,11 @@ where ResignationDate between '1970-01-01' and '2000-01-01'
 group by Member, reason, source, Category,ResignationDate
 order by ResignationDate desc
 
+select * 
+from congressage ca
+left join congressional_resignations$ c on c.member = concat(ca.firstname,' ',ca.lastname)
+full outer join Reasons r on c.Category = r.code
+
 
 select *
 from congressional_resignations$ c
@@ -88,20 +93,14 @@ group by party, member, party, reason, source, r.Category,ResignationDate,Congre
 order by 2
 
 
+select source, count(member) as n,ResignationDate as yearofres
+from congressional_resignations$
+group by source,ResignationDate
+order by yearofres desc
+
+
 select *
 from Reasons
-
-
-select c.party Party, r.Category,r.code Code, count(code) NumberOfPeopleWhoResigned, TotalMembersOfParty,
-cast((cast(count(code)as decimal(10,2))/cast((totalmembersofparty) as decimal(10,2))*100) as decimal (10,2)) as PercentageOfPartyWhoResigned
-from Reasons r
-full outer join congressional_resignations$ c
-on r.Code = c.Category
-join (select party, count(member) as totalmembersofparty from congressional_resignations$ group by party) as t
-on t.party = c.party
-group by c.party, r.Category, r.code, totalmembersofparty
-having r.code in ('a','b','c','d','e','f','g','h','i','x')
-order by c.party, r.code
 
 
 select party, count(code) as NumberOfSexualHarassmentResignations
@@ -121,48 +120,22 @@ group by party, r.Category
 order by Party
 
 
-select party, r.Category, count(code) numberoftimes, count(code)/count(member)*100 as percentageofparty
+select r.Category, count(code) TotalResignationsPerCategory
 from Reasons r
 full outer join congressional_resignations$ c
 on r.Code = c.Category
---where code = 'x' or code = 'a'
-group by party, r.Category, r.code
---having code = 'x' or code = 'a'
-order by Party
+where r.Category is not null
+group by r.Category, r.code
+order by Category
 
 
 select *
 from Reasons
 
 
-select party, count(member) as totalnumberofresignations
+select party, count(member) as TotalNumberOfResignations
 from congressional_resignations$
 group by party
-
-
-select * from select party, count(member) as totalnumberofresignations
-from congressional_resignations$
-group by party
-
-
-select c.party, r.Category, count(code) numberoftimes, count(code)/count(totalmembers)*100 as percentageofparty
-from Reasons r
-full outer join congressional_resignations$ c
-on r.Code = c.Category
-join (select party, count(member) as totalmembers from congressional_resignations$ group by party) as t
-on t.party = c.party
-group by c.party, r.Category, r.code
-order by c.Party
-
-
-select c.party, r.Category, count(code) numberoftimes, totalmembers, count(code)/count(totalmembers)*100 as percentageofparty
-from Reasons r
-full outer join congressional_resignations$ c
-on r.Code = c.Category
-join (select party, count(member) as totalmembers from congressional_resignations$ group by party) as t
-on t.party = c.party
-group by c.party, r.Category, r.code, totalmembers
-order by c.Party
 
 
 select party, category,numberoftimes,totalmembers, cast((numberoftimes/totalmembers) as decimal(10,2)) as percentageofparty
@@ -187,18 +160,6 @@ on t.party = c.party
 group by c.party, r.Category, r.code, totalmembers
 
 
-select source, count(member) as n,ResignationDate as yearofres
-from congressional_resignations$
-group by source,ResignationDate
-order by yearofres desc
-
-
-select * 
-from congressage ca
-left join congressional_resignations$ c on c.member = concat(ca.firstname,' ',ca.lastname)
-full outer join Reasons r on c.Category = r.code
-
-
 select *
 from congressional_resignations$
 where Member like 'joe biden'
@@ -206,12 +167,12 @@ where Member like 'joe biden'
 
 select * 
 from congressage ca
-full outer join congressional_resignations$ c on c.member = concat(ca.firstname,' ',ca.lastname)
+join congressional_resignations$ c on c.member = concat(ca.firstname,' ',ca.lastname)
 full outer join Reasons r on c.Category = r.code
-where c.Member like 'barack obama'
 
 
 select * 
 from congressage ca
-join congressional_resignations$ c on c.member = concat(ca.firstname,' ',ca.lastname)
+full outer join congressional_resignations$ c on c.member = concat(ca.firstname,' ',ca.lastname)
 full outer join Reasons r on c.Category = r.code
+where c.Member like 'barack obama'
