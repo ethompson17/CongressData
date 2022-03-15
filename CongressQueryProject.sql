@@ -70,9 +70,9 @@ on t.party = c.party
 where code = 'x' or code = 'a'
 group by c.party, totalmembersofparty
 
-select COUNT(Party), member, reason, source, Category,ResignationDate
+select member, reason, source, Category,ResignationDate
 from congressional_resignations$ c
-where ResignationDate between '1970-01-01' and '2000-01-01'
+where ResignationDate between '1980-01-01' and '2000-01-01'
 group by Member, reason, source, Category,ResignationDate
 order by ResignationDate desc
 
