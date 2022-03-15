@@ -1,4 +1,4 @@
-# There are Two Tables of Data in this Dataset to Download and One Table created in the query file
+# There are Two Tables of Data in this Dataset to Download below. The other table is created in the query file (first statement in the file)
 
 # Congressional Resignations
 
