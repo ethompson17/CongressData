@@ -1,4 +1,4 @@
-# There are two tables of data in this dataset to download in the folder "Datasets". The other table is created in the query file (first statement in the file)
+# There are two tables of data in this dataset to download in the folder `Datasets`. The other table is created in the query file (first statement in the file)
 
 # Congressional Resignations
 
@@ -24,7 +24,6 @@ Code | Category
 
 # Congress Age
 
-This folder contains the data behind the story [Both Republicans And Democrats Have an Age Problem](https://fivethirtyeight.com/features/both-republicans-and-democrats-have-an-age-problem/)
 
 `congress-age.csv` has an entry for every member of congress who served at any point during a particular congress between January 1947 and Februrary 2014.
 
