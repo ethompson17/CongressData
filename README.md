@@ -1,6 +1,6 @@
 ## There are two tables of data in this dataset to download in the folder `Dataset`. The other table is created in the query file `CongressQueryProject.sql` (first statement in the file)
 
-# Congressional Resignations
+# Congressional Resignations (Table)
 
 This folder contains data behind the story [We’ve Never Seen Congressional Resignations Like This Before](https://fivethirtyeight.com/features/more-people-are-resigning-from-congress-than-at-any-time-in-recent-history/).
 
@@ -22,7 +22,7 @@ Code | Category
 `I` | Election overturned
 
 
-# Congress Age
+# Congress Age (Table)
 
 
 `congress-age.csv` has an entry for every member of congress who served at any point during a particular congress between January 1947 and Februrary 2014.
