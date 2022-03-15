@@ -16,6 +16,7 @@ values
 ('H', 'Military services'),
 ('I', 'Election overturned')
 
+
 --Cleaning up Resignation Date column
 alter table congressional_resignations$
 alter column resignationdate date
@@ -48,6 +49,7 @@ on t.party = c.party
 group by c.party, r.Category, r.code, totalmembersofparty
 having r.code in ('a','b','c','d','e','f','g','h','i')
 
+
 select c.party Party, r.Category,r.code Code, count(code) NumberOfPeopleWhoResigned, TotalMembersOfParty,
 cast((cast(count(code)as decimal(10,2))/cast((totalmembersofparty) as decimal(10,2))*100) as decimal (10,2)) as PercentageOfPartyWhoResigned
 from Reasons r
@@ -70,11 +72,13 @@ on t.party = c.party
 where code = 'x' or code = 'a'
 group by c.party, totalmembersofparty
 
+
 select member, reason, source, Category,ResignationDate
 from congressional_resignations$ c
 where ResignationDate between '1980-01-01' and '2000-01-01'
 group by Member, reason, source, Category,ResignationDate
 order by ResignationDate desc
+
 
 select * 
 from congressage ca
