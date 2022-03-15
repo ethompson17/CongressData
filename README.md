@@ -32,6 +32,6 @@ House membership data is from the [@unitedstates project](http://theunitedstates
 * https://github.com/unitedstates/congress-legislators
 * https://github.com/govtrack/govtrack.us-web/blob/master/us.py#L93
 
-Senate membership data is mostly from the [New York Times Congress API](http://developer.nytimes.com/docs/read/congress_api) combined with birthdays from @unitedstates. (It does not include the birthday of Sen. Elmer Thomas.)
+Senate membership data is mostly from the New York Times Congress API combined with birthdays from @unitedstates. (It does not include the birthday of Sen. Elmer Thomas.)
 
 In addition, I added an `incumbent` field to each record.
