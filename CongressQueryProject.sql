@@ -5,8 +5,8 @@ category varchar(50));
 
 insert into Reasons (Code,Category)
 values
-('X', 'Unwanted sexual contact'),
-('A', 'Consensual sex scandals'),
+('X', 'Unwanted contact'),
+('A', 'Consensual scandals'),
 ('B', 'Other scandals'),
 ('C', 'Other office'),
 ('D', 'Private sector'),
